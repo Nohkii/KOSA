@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1,button{
+	cursor: pointer;
+}
+h1 {
+	text-align: center;
+	border: 3px solid purple;
+	border-style: dashed;
+	padding: 10px;
+	border-radius: 10px;
+}
+button {
+	border: none;
+	border-radius: 5px;
+	background: #A390EE;
+	width: 8%;
+	height:5%;
+	height: 30px;
+	margin: auto;
+	color: white;
+}
+.container {
+	display: flex;
+	justify-content: center;
+}
+#result{
+text-align: center;
+margin:20px;
+}
+</style>
+</head>
+<body>
+	<h1 id="title">구구단</h1>
+	<div class="container">
+		<button class="btn" value="1">1단</button>
+		<button class="btn" value="2">2단</button>
+		<button class="btn" value="3">3단</button>
+		<button class="btn" value="4">4단</button>
+		<button class="btn" value="5">5단</button>
+		<button class="btn" value="6">6단</button>
+		<button class="btn" value="7">7단</button>
+		<button class="btn" value="8">8단</button>
+		<button class="btn" value="9">9단</button>
+	</div>
+	<div id=result></div>
+	<script>
+		function gugudan(e) {
+			document.querySelector("#result").innerHTML = "";
+			console.log(e.target.value)
+			for (let i = 1; i <= 9; i++) {
+				document.querySelector("#result").innerHTML += e.target.value
+						+ " * " + i + " = " + i * e.target.value + "<br/>";
+			}
+		}
+		/* 굳이 클래스이름을 주지 않고 getElementsByTagName으로 가져다 써도 된다,, */
+		let btnList = document.querySelectorAll(".btn");
+		[].forEach.call(btnList, function(e) {
+			e.addEventListener("click", gugudan, false);
+		});
+		document.querySelector("#title").addEventListener("click", function() {
+			location.href = "https://ko.wikipedia.org/wiki/구구단";
+		})
+	</script>
+</body>
+</html>

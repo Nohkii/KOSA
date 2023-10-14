@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @font-face {
+    font-family: 'Orbit-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+        *{
+          font-family: 'Orbit-Regular';
+        }
+    </style>
+</head>
+<body>
+<h1>우리 팀 소개</h1>
+<hr/>
+<button type="button" onclick="go('team')">우리 팀명</button>
+<button type="button" onclick="go('member')">우리 팀원</button>
+<output id="result"></output>
+<script>
+    function go(target) {
+    let request = new XMLHttpRequest();
+    request.onload = function(){
+        if (request.status == 200) {
+            var result = document.getElementById("result");
+            var jsonDOM = JSON.parse(request.responseText);
+            if(target == "team"){
+            result.innerHTML = "<h3>우리 팀의 팀명은 "+jsonDOM.teamName+"입니다.</h3>";
+            }else{
+            result.innerHTML = "<h3>"+jsonDOM.teamName+"의 팀원들을 소개합니다.</h3>";
+            result.innerHTML +="<ul>";
+            for(let i = 0; i < 4; i++){
+                result.innerHTML +=  "<li>"+jsonDOM.teamMember[i].name+": 별명은 "+jsonDOM.teamMember[i].nickName+"이고 좋아하는 음식은 "+jsonDOM.teamMember[i].food+"입니다.</li>";
+            }
+              result.innerHTML +="</ul>";
+            }
+        }
+    };
+    request.open('GET', '/myTeam2?type='+target, true);
+    request.send();
+}
+</script>
+</body>
+</html>

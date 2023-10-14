@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	font-family: omyu_pretty;
+}
+
+@font-face {
+	font-family: 'MaplestoryOTFBold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'omyu_pretty';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+header, footer {
+	width: 100%;
+	text-align: center;
+}
+
+header {
+	background-image: linear-gradient(#2eb9fe, #ffffff);
+	height: 230px;
+}
+
+h1 {
+	line-height: 180px;
+	color: #ffffff;
+	text-shadow: 2px 8px 6px #0a8ec7, 0px -3px 20px rgba(255, 255, 255, 0.4);
+	font-family: MaplestoryOTFBold;
+}
+
+h1>span {
+	color: #6EEAFF;
+	text-shadow: 2xp 8px 6px #0a8ec7, 0px -3px 20px rgba(255, 255, 255, 0.4);
+	font-family: MaplestoryOTFBold;
+}
+
+nav>a {
+	margin: 0 80px 20px;
+	text-decoration: none;
+	line-height: 5px;
+	color: #626262;
+}
+
+nav>a:hover {
+	font-weight: bold;
+}
+
+section {
+	margin-top: 40px;
+}
+
+h2>span {
+	color: #007bbd;
+}
+
+article, aside {
+	margin: 20px 10%;
+	padding: 30px;
+}
+
+article {
+	border: 3px solid #c8c8c8;
+	border-radius: 10px;
+}
+
+article:nth-of-type(2)>p {
+	margin: 20px 0 50px 0;
+}
+
+article:nth-of-type(3)>p {
+	margin: 20px 0 50px 0;
+}
+
+article:nth-of-type(3)>figure {
+	margin: 0 auto;
+}
+
+img:hover {
+	opacity: 0.5;
+}
+
+figcaption {
+	text-align: center;
+}
+
+article ul {
+	list-style: circle;
+	margin-left: 40px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 500px;
+	margin: 1rem auto;
+	background-color: #269bdf7e;
+}
+
+thead {
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ffffff;
+	text-align: center;
+}
+
+th {
+	padding: 8px;
+	text-align: left;
+	text-align: center;
+	border-top: 2px solid #fafafa;
+	border-bottom: 2px solid #ffffff;
+	color: #f5f5f5;
+	background-color: #269edf;
+}
+
+th:nth-child(1), td:nth-child(1) {
+	width: 45%;
+}
+
+th:nth-child(2), td:nth-child(2) {
+	width: 55%;
+}
+
+th, td {
+	border-left: none;
+	border-right: none;
+}
+
+img:nth-of-type(1) {
+	width: 29%;
+}
+
+img:nth-of-type(2) {
+	width: 40%;
+}
+
+img:nth-of-type(3) {
+	width: 29%;
+}
+
+iframe {
+	width: 100%;
+	height: 400px;
+}
+
+footer {
+	background-color: #626262;
+	line-height: 150px;
+	color: #ffffff;
+}
+</style>
+</head>
+<body>
+	<header>
+		<h1>
+			노은기의 <span>HTML</span> 학습
+		</h1>
+		<nav>
+			<a href="https://www.w3.org/">W3C</a> <a
+				href="https://www.w3schools.com/">W3CSCHOOLS</a> <a
+				href="https://developer.mozilla.org/ko/">MDN</a>
+		</nav>
+	</header>
+	<section>
+		<article>
+			<h2>
+				나의 <span>소개</span>
+			</h2>
+			<br />
+			<ul>
+				<li>이름 : 노은기</li>
+				<li>별명 : 노키</li>
+				<li>관심기술 : HTML5</li>
+				<li>취미 : 영화감상</li>
+			</ul>
+		</article>
+		<article>
+			<h2>
+				올해 재미있게 시청한 <span>예능</span>
+			</h2>
+			<br />
+			<table>
+				<thead>
+					<tr>
+						<th>제목</th>
+						<th>공급사</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>뿅뿅 지구오락실</td>
+						<td>tvN</td>
+					</tr>
+					<tr>
+						<td>환승연애2</td>
+						<td>Netflix</td>
+					</tr>
+					<tr>
+						<td>사이렌: 불의 섬</td>
+						<td>Netflix</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+		<article>
+			<h2>
+				자랑하고 싶은 우리 동네의 <span>아름다운 곳</span>
+			</h2>
+			<br />
+			<p>
+				<b>마루공원</b>은 산책로, 광장, 어린이 교통체험장, 놀이터, 다목적운동장 등 다양한 여가활동을 즐길수 있는
+				복합문화체육공원입니다.
+			</p>
+			<figure>
+				<img
+					src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA4MDlfMTg3%2FMDAxNjkxNTg0NzAyNDA4.i905TSpvf0uKlj_0OO8nNYEGWkt0jLILJ8ZacvffSkkg.Wp39s9sj09GnUydl58ORsP-4Yr5ksgHSAMkWeBC_cbgg.JPEG%2F0E4ECA43-AE4A-4135-9AAD-39E69E854BF7.jpeg"
+					width="300" />
+				<img
+					src="http://bbkk.kr/d/t/23/2363_%EB%A9%94%EC%9D%B8%EC%82%AC%EC%A7%84.jpg" />
+				<img
+					src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA4MDlfMjA3%2FMDAxNjkxNTg0NzAyNzA4.0DI0lHVpNmEM_yAVQVxoamgudXHNdF5m7Wz-ZZvKYB4g.1rxO8fKmA_wxObC52qb61YOOGi80PkY_Z97Zi0d4q_Eg.JPEG%2FA0F2BEEF-E912-4358-B8DA-3A0EEAACCF3C.jpeg"
+					width="300" />
+				<figcaption>일원동에 위치한 마루공원의 모습</figcaption>
+			</figure>
+		</article>
+	</section>
+	<aside>
+		<iframe width="560" height="315"
+			src="https://www.youtube.com/embed/9cZ7rWLklTU?si=4a5pJRh1KzrZjvV7"
+			title="YouTube video player" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen></iframe>
+		<br />
+	</aside>
+	<footer>
+		<em>이 문서는 노은기에 의해 HTML5와 CSS3 기술을 사용하여 2023년 9월 14일에
+			작성하였습니다.(ver 1.0)</em>
+	</footer>
+</body>
+</html>

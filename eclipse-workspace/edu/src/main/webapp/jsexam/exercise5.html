@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1 {
+	color: blue;
+}
+h2 {
+	color: red;
+}
+ul {
+	list-style-type: circle;
+}
+</style>
+</head>
+<body>
+	<script src="util.js"></script>
+	<script>
+write("자바스크립트 실습(5)","h1");
+let ary = [10, 5, 7, 21, 4, 8, 18];
+function getSum(a){
+let sum = 0;
+a.forEach((e)=>{
+	sum += e;
+})	
+	return sum;
+}
+function getMaxValue(a){
+	let max = 0;
+	a.forEach((e)=>{
+		if(e > max){
+			max = e;
+		}
+	})	
+		return max;
+	}
+function getMinValue(a){
+	let min = ary[0];
+	a.forEach((e)=>{
+		if(e < min){
+			min = e;
+		}
+	})	
+		return min;
+	}
+function getCountEvenNum(a){
+	let evenCount = 0; 
+	a.forEach((e)=>{
+		if(e%2==0){
+			evenCount++;
+		}
+	})	
+		return evenCount;
+	}
+function getCountOddNum(a){
+	let oddCount = 0; 
+	a.forEach((e)=>{
+		if(e%2==1){
+			oddCount++;
+		}
+	})	
+		return oddCount;
+	}
+write("모든 원소의 합 : "+getSum(ary),"h2");
+document.write("<ul>")
+write("최대값 : "+getMaxValue(ary),"li")
+write("최소값 : "+getMinValue(ary),"li")
+write("짝수의 갯수 : "+getCountEvenNum(ary),"li")
+write("홀수의 갯수 : "+getCountOddNum(ary),"li")
+document.write("</ul>")
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Exercise13</title>
+<style>
+	h1{
+		text-align : center;
+	}
+	div{
+		text-align : center;
+	}
+	button{
+		background-color : white;
+		border-radius : 10px;
+		border-style : 1px solid black;
+		color : orange;
+	}
+</style>
+</head>
+<body>
+	<h1 onclick="go()">구구단</h1>
+	<div>
+		<button>1단</button>
+		<button>2단</button>
+		<button>3단</button>
+		<button>4단</button>
+		<button>5단</button>
+		<button>6단</button>
+		<button>7단</button>
+		<button>8단</button>
+		<button>9단</button>
+	</div>
+	<div id="output"></div>
+	<script>
+		const btnDom = document.getElementsByTagName("button");
+		for(let i=0; i<btnDom.length; i++){
+			btnDom[i].addEventListener("click", gugudan);
+		}
+		function go(){
+			location.href="https://ko.wikipedia.org/wiki/구구단";
+		}
+		function gugudan(e){
+			var outDom = document.getElementById('output');
+			outDom.innerHTML="";
+			var txtContent = e.target.textContent;
+			var dan = Number(txtContent.substr(0,1));
+		
+			for(let num=1; num<=9; num++){
+				outDom.innerHTML += "<p>"+num+" x "+dan+" = "+ num*dan+"</p>";
+			}
+		}
+	</script>
+</body>
+</html>

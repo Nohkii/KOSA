@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//변수를 선언합니다.
+	const child = window.open('../../first.html', '', 'width=300, height=200');
+	const width = screen.width; // 전체 크기 추출
+	const height = screen.height;
+	child.moveTo(0, 0); // moveTo 0,0위치로 옮겨라~
+	child.resizeTo(width, height);   
+	window.setInterval(function () {
+    	child.resizeBy(-20, -20);
+    	child.moveBy(10, 10);
+	}, 100);  
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+

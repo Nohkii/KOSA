@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="util.js"></script>
+	<script>
+		function printObject(p) {
+			if (typeof p != "object") {
+				return;
+			}
+			return writeColor(p.msg, p.tag,p.color);
+		}
+		for(let i = 0; i<5; i++){
+			let p = {
+				tag : 'h'+i,
+				color : 'red',
+				msg : '자바스크립트'+i
+			}			
+			printObject(p);
+		}
+	</script>
+</body>
+</html>

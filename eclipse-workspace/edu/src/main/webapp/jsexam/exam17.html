@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>자바스크립트의 객체 생성과 사용(1)</h1>
+<hr>
+<script src="util.js"></script>
+<script>
+var d = new Date();
+writeColor(d, "h2", "red"); // Tue Sep 19 2023 10:35:49 GMT+0900 (한국 표준시)
+writeColor(d.toLocaleString(), "h2", "blue"); // 2023. 9. 19. 오전 10:35:49
+writeColor(d.getFullYear(), "h2", "green"); // 2023
+writeColor(d.getMonth(), "h2", "magenta"); // 8
+writeColor(d.getDate(), "h2", "orange"); // 19 -> 0 : 일요일
+writeColor(d.getDay(), "h2", "magenta"); // 2
+writeColor(d.getTime(), "h2", "brown"); // 1695087349180
+writeColor(Date.now(), "h2", "red"); // 1695087349191
+hr();
+var d1 = new Date(2023, 9, 3); // -> 1개 작게 처리(실제로는 10월 3일이 된다)
+writeColor(d1, "h2", "magenta"); // Tue Oct 03 2023 00:00:00 GMT+0900 (한국 표준시)
+writeColor(d1.getFullYear(), "h2", "green");
+writeColor(d1.getDate(), "h2", "orange");
+writeColor(d1.getDay(), "h2", "lime");
+hr()
+var list = new Array();  // [ ]
+writeNewLine(list.length);
+list.push(1);
+writeNewLine(list.length);
+list.push('가나다');
+writeNewLine(list.length);
+list.push(100);
+writeNewLine(list.length);
+list.push("abc");
+writeNewLine(list.length);
+list.push(true);
+writeNewLine(list.length);
+writeNewLine("리스트의 모든 엘리먼트 : " + list);
+hr();
+for (var i in list) {
+    writeNewLine(list[i]);
+}
+hr();
+for (var i=0; i < list.length; i++) {
+    writeNewLine(list[i]);
+}
+hr();
+var list2 = [10, 20, 30, 40, 50]
+for (var i in list2) {
+    writeNewLine(list2[i]);
+}
+</script>
+</body>
+</html>

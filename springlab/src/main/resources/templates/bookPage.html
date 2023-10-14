@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @font-face {
+            font-family: 'Orbit-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;}
+        *{
+         font-family: 'Orbit-Regular'; }
+        a {
+        cursor:pointer; }
+    </style>
+</head>
+<body>
+<h1>도서 게시판</h1>
+<hr/>
+<a onclick="location.href='/book/b1'">전체 도서 리스트 보기</a><br/>
+<a onclick="location.href='/book/b2'">가격이 높은 순으로 도서 리스트 보기</a><br/>
+<a onclick="location.href='/book/b3'">가격이 20000원 이상인 도서 리스트 보기</a><br/>
+<a onclick="location.href='/book/b4'">웹 프로그래밍 도서 리스트 보기</a><br/>
+<a onclick="location.href='/book/b5'">데이터베이스와 인프라 도서 리스트 보기</a><br/>
+<a onclick="location.href='/book/b6'">도서명에 '자바'가 포함된 도서 리스트 보기</a><br/>
+<a onclick="location.href='/book/b7'">분류별 도서 가격의 평균 보기</a><br/>
+<hr/>
+<div id="result">
+    <th:block th if="${list}">
+        <ul th:each="vo : ${list}">
+            <li>[[${vo}]]</li>
+        </ul>
+        <hr/>
+    </th:block>
+</div>
+<h1>도서 정보 입력</h1>
+<hr/>
+<form action="/book/bookCreate" method="post">
+    도서명 : <input type="text" name="title" required><br/><br/>
+    가격 : <input type="number" name="price" required>원<br/><br/>
+    도서 분류 :<br/><br/>
+    <input type="radio" name="kind" value="b01"> 프로그래밍 언어
+    <input type="radio" name="kind" value="b02"> 웹 프로그래밍
+    <input type="radio" name="kind" value="b03"> 빅데이터
+    <input type="radio" name="kind" value="b04"> 데이터베이스
+    <input type="radio" name="kind" value="b05"> 인프라<br/><br/>
+    <input type="submit" value="저장">
+</form>
+</body>
+</html>

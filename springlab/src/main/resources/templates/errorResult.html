@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{   color: pink;   }
+    </style>
+</head>
+<body>
+<h1>요청을 처리하는 동안 오류가 발생했어요.</h1>
+<h2>오류의 원인 : <span>[[${result}]]</span></h2>
+<a th:href="${refinfo}">입력 화면</a>
+</body>
+</html>
