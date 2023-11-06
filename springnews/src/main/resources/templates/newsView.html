@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      h2{
+      text-align: center;
+      margin-top: 50px;
+      }
+      form {text-align: right;
+       height: 150px;
+        line-height: 150px;}
+        table{
+        text-align: center;
+        margin: auto 0;
+        }
+      th,td {
+        border-bottom: 1px solid lightgray;
+        padding-left: 20px;
+      }
+      tr:hover {
+        background-color: #efd6fa;
+        font-weight: bold;
+      }
+      td:nth-child(2) {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>뉴스 게시판</h2>
+    <form action="/search" method="get">
+      <input type="text" name="keyword"/><button type="submit">검색</button>
+    </form>
+    <th:block th:if="${list}">
+      <table>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+        <tr th:each="vo: ${list}">
+          <td>[[${vo.id}]]</td>
+          <td th:class="${vo.id}" th:onclick="|displayDetail(${vo.id})|">
+            [[${vo.title}]]
+          </td>
+          <td th:class="${vo.id}" ><a th:href="@{/writer(writer=${vo.writer})}">[[${vo.writer}]]</a></td>
+          <td th:class="${vo.id}">[[${vo.writedate}]]</td>
+          <td>[[${vo.cnt}]]</td>
+        </tr>
+      </table>
+    </th:block>
+    <button class="writeBtn" onclick="displayDiv(1)">뉴스 작성</button>
+    <script>
+      function displayDiv(type) {
+        if (type == 1) {
+          document.getElementById("write").style.display = "block";
+          document.getElementById("divT").textContent = "뉴스정보 작성";
+           document.querySelector("#write [type=submit]").value = "작성";
+           document.querySelector("#write [type=reset]").style.display = "inline";
+          document.getElementById("n_title").value = "";
+          document.getElementById("n_writer").value = "";
+          document.getElementById("n_content").value = "";
+        } else {
+          document.getElementById("write").style.display = "none";
+        }
+      }
+      function displayDetail(id) {
+        let jsonobj = null;
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            jsonobj = JSON.parse(xhr.responseText);
+            console.log(jsonobj);
+            document.getElementById("n_writer").value = jsonobj.writer;
+            document.getElementById("n_title").value = jsonobj.title;
+            document.getElementById("n_content").value = jsonobj.content;
+          }
+        };
+        xhr.open("GET", "/one?id=" + id, true);
+        xhr.send();
+        document.getElementById("write").style.display = "block";
+        document.querySelector("#write [type=reset]").style.display = "none";
+        document.querySelector("#write [type=button]").value = "삭제";
+        document.getElementById("divT").textContent = "뉴스정보 수정";
+        document.querySelector("#write [type=submit]").value = "수정";
+        document.querySelector("#write [type=hidden]").value = id;
+        document.querySelector("#write form").action = "/update";
+        document.querySelector("#write [type=button]").onclick = function () {
+          if (confirm("정말로 삭제하시겠습니까?")) {
+            xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+              if (xhr.status == 200) {
+                alert("뉴스가 삭제되었습니다.");
+              }
+            };
+            xhr.open("get", "/delete?id=" + id, true);
+            xhr.send();
+          }
+        };
+      }
+    </script>
+    <div id="write" style="display: none">
+      <hr />
+      <h4 id="divT">뉴스 작성</h4>
+      <form method="post" action="/insert">
+        <input type="hidden" name="id" value="0" />
+        뉴스 작성자: <input type="text" id="n_writer" name="writer" /><br />
+        뉴스 제목:
+        <input type="text" id="n_title" name="title" /><br />
+        뉴스 내용: <br />
+        <textarea type="text" id="n_content" name="content"></textarea><br />
+        <input type="submit" value="작성" onclick="displayDiv(2)" />
+        <input type="reset" value="재작성" />
+        <input type="button" value="취소" onclick="displayDiv(2)" />
+      </form>
+    </div>
+  </body>
+</html>

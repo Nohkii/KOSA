@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		let coffee = {
+			name : "Americano",
+			price : 3000
+		};
+
+		console.log("CASE1");
+		let {name, price} = coffee;
+		console.log(name);	// Americano
+		console.log(price);	// 3000
+
+		console.log("CASE2");
+		let {name: coffeeName, price: coffeePrice} = coffee;		
+		console.log(coffeeName); // Americano
+		console.log(coffeePrice); //3000
+
+		console.log("CASE3");
+		let {name: coffeeName1, caffeine: coffeeCaffeine} = coffee;		
+		console.log(coffeeName1);		 // Americano
+		console.log(coffeeCaffeine); // 명칭이 일치하지 않기 때문에 undefined됨
+
+		console.log("CASE4");
+		let {name: coffeeName2, caffeine: coffeeCaffeine1 = 500} = coffee;
+		console.log(coffeeName2);
+		console.log(coffeeCaffeine1); 
+		// 존재하지 않으면 500을 넣어라 -> 500이 들어감
+	</script>
+</body>
+</html>

@@ -17,7 +17,7 @@ public interface MenuDAO {
 
     @Update("update menu "
             + "set store_id = #{storeId},"
-            + "menu_name = #{menuName}, price = #{price}, menu_desc = #{menuDesc}, dessert_id = #{dessertId}, image = #{image}"
+            + "menu_name = #{menuName}, price = #{price}, menu_desc = #{menuDesc}, dessert_id = #{dessertId}, menu_image_path = #{menuImagePath}"
             + "where menu_id = #{menuId}")
     public boolean updateMenu(MenuDTO dto);
 

@@ -7,18 +7,25 @@ import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@Slf4j
 @RequestMapping("/step1")
 public class ThymeleafController1 {
 	
 	@GetMapping("/hithymeleaf")
     public String hiThymeleaf(Model model) {
         model.addAttribute("say", "안녕?");
+        log.error("error-hiThymeleaf로그를 테스트합니다!");
+        log.warn("warn-hiThymeleaf로그를 테스트합니다!");
+        log.info("info-hiThymeleaf로그를 테스트합니다!");
+        log.debug("debug-hiThymeleaf로그를 테스트합니다!");
+        log.trace("trace-hiThymeleaf로그를 테스트합니다!");
         return "basic/hithymeleaf";
     }
 	

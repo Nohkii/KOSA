@@ -3,31 +3,25 @@ package prac;
 import java.util.ArrayList;
 
 public class Solution {
-	/*
-	 * public static int solution(int[] arr) { return 0; }
-	 */
+    public int solution(int[] people, int limit) {
+        // 구출했으면 배열에서 값을 빼야함 (remove())
+        // 만약 더했을 때 limit을 넘어가면 다시 빼고 다른 사람을 더해야 함
+        int answer = 0;
+        ArrayList<Integer> ary = new ArrayList<>();
+        for(int i : people){
+            ary.add(i);
+        }
+        for(int i : ary){
+            System.out.println(i+" ");
+        }
+        return answer;
 
-	public static void main(String[] args) {
-		String str1 = "42";
-		String str2 = "abc";
-
-		// parseInt() 사용
-		int number1 = 0;
-		try {
-		    number1 = Integer.parseInt(str1); // 정상적인 변환
-		    int number2 = Integer.parseInt(str2); // 변환 실패 - NumberFormatException 발생
-		} catch (NumberFormatException e) {
-		    // 오류 처리
-		}
-
-		// valueOf() 사용
-		Integer number3 = Integer.valueOf(str1); // 정상적인 변환
-		Integer number4 = Integer.valueOf(str2); // 변환 실패 - null 반환
-
-		System.out.println("number1: " + number1); // 출력: 42
-//		System.out.println("number2: " + number2); // 예외 발생
-		System.out.println("number3: " + number3); // 출력: 42
-		System.out.println("number4: " + number4); // 출력: null
-
+	}
+    public static void main(String[] args) {
+    	int[] people = {70, 80,50};
+    	int limit = 100;
+    	Solution sol = new Solution();
+    	int result = sol.solution(people, limit);
+		System.out.println(result);
 	}
 }

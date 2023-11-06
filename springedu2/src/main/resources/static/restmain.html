@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <h1>3조의 REST API 실습</h1>
+    <hr />
+    <input
+      type="button"
+      value="둘리와 친구들 보기"
+      id="mainBtn"
+      onclick="displayBtn()"
+    />
+    <hr />
+    <script>
+      document.querySelector("#mainBtn").onClick;
+      let dooliHref = "";
+      let ddochiHref = "";
+      let dounaHref = "";
+      let jsonobj = {}; // json은 객체형태로 오기 때문에 null이나 ""로 초기화하면 안됨
+      // 한줄 한줄,, 생각하면서 작성해야 한다. 기초부터 튼튼하게,,
+      let xhr = ""; // xhr의 경우에도 문자열의 형태로 오기 때문에 초기화할 때 null이 아니라 ""로 해야한다~
+      function displayBtn() {
+        document.querySelector("#buttonBox").style.display = "block";
+        xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            jsonobj = JSON.parse(xhr.responseText);
+            document.querySelector("#btn1").value = jsonobj[0].name;
+            dooliHref = jsonobj[0].links[0].href;
+            document.querySelector("#btn2").value = jsonobj[1].name;
+            ddochiHref = jsonobj[1].links[0].href;
+            document.querySelector("#btn3").value = jsonobj[2].name;
+            dounaHref = jsonobj[2].links[0].href;
+          }
+        };
+        xhr.open("GET", "/all", true);
+        xhr.send();
+      }
+      function displayDiv(type) {
+       document.querySelector("#buttonBox").style.display = "none";
+        xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            jsonobj = JSON.parse(xhr.response);
+            document.querySelector("#imgBox").style.display = "block";
+            document.querySelector("#name").innerHTML = jsonobj.name;
+            document.querySelector("#addr").innerHTML = jsonobj.addr;
+            document.querySelector("#img").src = "images/" + jsonobj.image;
+          }
+        };
+        xhr.open("GET", type, true);
+        xhr.send();
+      }
+    </script>
+    <div id="buttonBox" style="display: none">
+      <input type="button" id="btn1" onclick="displayDiv(dooliHref)" />
+      <input type="button" id="btn2" onclick="displayDiv(ddochiHref)" />
+      <input type="button" id="btn3" onclick="displayDiv(dounaHref)" />
+    </div>
+    <div id="imgBox" style="display: none">
+      <img id="img" width="200px" />
+      <div id="name"></div>
+      <div id="addr"></div>
+    </div>
+  </body>
+</html>
