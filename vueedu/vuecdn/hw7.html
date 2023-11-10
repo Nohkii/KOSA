@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <h1>우리팀의 정보를 출력하세요</h1>
+    <hr />
+    <div id="app">
+      <my-component team-name="Null" font-color="blue"></my-component>
+      <my-component team-name="Null1" font-color="green"></my-component>
+      <my-component team-name="Null2" font-color="orange"></my-component>
+    </div>
+    <script>
+      const { createApp } = Vue;
+      const MyComponent = {
+        template:
+          "<h2 :style='{color:fontColor}'>4조 - {{teamName}}</h2><ul><li>문호준</li><li>노은기</li><li>손승범</li><li>이해성</li></ul><hr/>",
+        props: {
+          teamName: String,
+          fontColor: String,
+        },
+      };
+      createApp({
+        components: {
+          "my-component": MyComponent,
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
