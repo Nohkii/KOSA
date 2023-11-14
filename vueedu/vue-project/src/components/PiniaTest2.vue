@@ -21,11 +21,11 @@ import { useListStore } from '@/stores/liststore';
 import { storeToRefs } from 'pinia'
 
 const store1 = useCounterStore();
-let localv = store1.count;
+let localv = store1.count; // 앞에서 3번 호출했기 때문에 3 추출
 
 const store2 = useFriendStore()
 console.log(store2);
-const { name, age } = storeToRefs(store2)
+const { name, age } = storeToRefs(store2) // 2개반 반응성을 유지하며 구조분해할당
 
 const list = useListStore();
 const { getDataAll } = storeToRefs(list);

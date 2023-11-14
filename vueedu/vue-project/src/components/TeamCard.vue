@@ -11,11 +11,20 @@
       <h5 class="card-title">{{ name }}</h5>
       <p class="card-text">{{ food }}</p>
       <button class="btn btn-primary" @click="handleClick">OK</button>
+      <span>{{ datas.time }}</span>
     </div>
   </div>
 </template>
 <script setup>
-import { defineProps, defineEmits, onMounted } from "vue";
+import { defineProps, defineEmits } from "vue";
+import { useWeatherStore } from "../stores/weather";
+import { storeToRefs } from "pinia";
+const emit = defineEmits(["deleteCard"]);
+const weather = useWeatherStore();
+let { datas } = storeToRefs(weather);
+weather.createWeather();
+console.log("datas.time"+datas.time);
+
 const p = defineProps({
   name: String,
   food: {
@@ -23,12 +32,11 @@ const p = defineProps({
     default: "떡볶이",
   },
   srcUrl: String,
-  teamNum: Number,
+  teamNum: String,
+  num: Number,
 });
-const emit = defineEmits(["display-teamcard"]);
-const message = "false";
-onMounted(() => {
-    handleClick(()=>emit('display-teamcard', message)) 
-})
-
+async function handleClick() {
+  emit("deleteCard", p.num);
+  alert(datas.value);
+}
 </script>
