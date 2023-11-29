@@ -17,6 +17,9 @@ import java.util.List;
 @RestController
 public class BlogApiController {
 
+
+
+
     private final BlogService blogService;
 
     @PostMapping("/api/articles")
@@ -26,7 +29,11 @@ public class BlogApiController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedArticle);
     }
-
+//@GetMapping("/api/allAriticles")
+//public ResponseEntity<List<ArticleResponse>> findAll(){
+//        List<ArticleResponse> all = blogService.findAll().stream().map(ArticleResponse::new).toList();
+//    return ResponseEntity.ok().body(all);
+//}
     @GetMapping("/api/articles")
     public ResponseEntity<List<ArticleResponse>> findAllArticles() {
         List<ArticleResponse> articles = blogService.findAll()
@@ -48,7 +55,7 @@ public class BlogApiController {
     @DeleteMapping("/api/articles/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable long id) {
         blogService.delete(id);
-
+ 
         return ResponseEntity.ok()
                 .build();
     }

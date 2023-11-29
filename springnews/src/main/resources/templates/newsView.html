@@ -8,12 +8,9 @@
       text-align: center;
       margin-top: 50px;
       }
-      form {text-align: right;
-       height: 150px;
-        line-height: 150px;}
         table{
         text-align: center;
-        margin: auto 0;
+        margin: 0 auto;
         }
       th,td {
         border-bottom: 1px solid lightgray;
@@ -29,10 +26,11 @@
     </style>
   </head>
   <body>
-    <h2>뉴스 게시판</h2>
-    <form action="/search" method="get">
+<h2 style="text-decoration: none;">    <a href="/newsmain" >뉴스 게시판</a></h2>
+    <form action="/search" method="get" style="text-align: right;">
       <input type="text" name="keyword"/><button type="submit">검색</button>
     </form>
+    <div class="container" >
     <th:block th:if="${list}">
       <table>
         <tr>
@@ -53,6 +51,7 @@
         </tr>
       </table>
     </th:block>
+    </div>
     <button class="writeBtn" onclick="displayDiv(1)">뉴스 작성</button>
     <script>
       function displayDiv(type) {
