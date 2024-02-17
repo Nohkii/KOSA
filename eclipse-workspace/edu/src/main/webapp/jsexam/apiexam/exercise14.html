@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1 {
+	text-shadow: 0px 0px 7px #630063, 0px 0px 5px black;
+	color: #ffffff;
+	text-align: center;
+}
+div {
+	border: 1px solid purple;
+	width: 300px;
+	height: 100px;
+	border-radius: 10px;
+	box-shadow: 5px 5px #91133c;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+button {
+	color: #ffffff;
+	background-color: #590259;
+	margin: 0 5px;
+}
+img {
+	margin: 50px auto;
+	display: block;
+}
+</style>
+</head>
+<body>
+	<h1>이벤트 처리 실습</h1>
+	<hr />
+	<div id="div">
+		<button value="sun">맑음</button>
+		<button value="cloud">흐림</button>
+		<button value="rain">비</button>
+	</div>
+	<img width="400px">
+	<hr />
+	<script>
+		const container = document.getElementsByTagName("div")[0];
+		container.addEventListener("click", showWeather);
+		const img = document.getElementsByTagName("img")[0];
+		
+		function showWeather(e) {
+			if(e.target.value){
+			img.src = "../../images/"+ e.target.value + ".png";
+			}else{
+				img.src = ""				
+			}
+		}
+	</script>
+</body>
+</html>

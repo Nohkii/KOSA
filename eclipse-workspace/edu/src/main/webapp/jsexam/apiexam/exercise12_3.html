@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>이벤트 모델 - 표준</h1>
+	<hr />
+	<button id="b1" value="red">빨강색</button>
+	<button id="b2" value="blue">파랑색</button>
+	<button id="b3" value="yellow">노랑색</button>
+	<hr />
+	<div id="result">
+		오늘은 <span id="month">9</span>월 <span id="day">20</span>일입니다.
+	</div>
+	<script>
+		let date = new Date();
+		document.querySelector("#month").innerHTML = date.getMonth() + 1;
+		document.querySelector("#day").innerHTML = date.getDate();
+		const result = document.querySelector("#result");
+		function btnClickHandler(e) {
+			console.log(e);
+			result.style.color = e.target.value;
+		}
+		document.querySelector("#b1")
+				.addEventListener("click", btnClickHandler);
+		document.querySelector("#b2")
+				.addEventListener("click", btnClickHandler);
+		document.querySelector("#b3")
+				.addEventListener("click", btnClickHandler);
+	</script>
+</body>
+</html>

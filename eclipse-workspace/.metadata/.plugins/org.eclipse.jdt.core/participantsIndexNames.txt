@@ -1,0 +1,11 @@
+INDEX VERSION 1.131
+C:\kosastudy\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2629630135.index
+\mvc\src\main\java
+C:\kosastudy\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2510404959.index
+\edu\src\main\java
+C:\kosastudy\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\646104118.index
+\edu\src\main\java
+C:\kosastudy\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\432048166.index
+\mvc\src\main\java
+C:\kosastudy\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3538580962.index
+\edu\src\main\java

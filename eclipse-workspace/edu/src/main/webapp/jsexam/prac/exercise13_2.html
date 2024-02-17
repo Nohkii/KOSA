@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	button{
+		margin-right: 10px;
+	}
+	
+</style>
+</head>
+<body>
+<h1 onclick='location.href="https://ko.wikipedia.org/wiki/구구단"'>구구단</h1>
+<span id ="buttons"></span>
+<p></p>
+<script>
+	const print99dan = function(e){
+		var pdom = document.getElementsByTagName("p");
+		pdom[0].innerHTML = "";
+		for(var dan = 1; dan<=9;dan++){
+			pdom[0].innerHTML += `${e.target.id}X${dan}=${e.target.id*dan} <br>`;
+		}
+	}
+	
+	for(var i=1;i<=9;i++){
+		document.getElementById("buttons").innerHTML += `<button id=${i}>${i}단</button>`;
+	}
+	
+	const dom = document.getElementsByTagName("button");
+	for(var i=0; i<dom.length;i++)
+		dom[i].addEventListener("click", print99dan);
+</script>
+</body>
+</html>

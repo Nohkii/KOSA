@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img{
+width: 150px;
+border: 1px solid black;
+margin:0 20px 20px 0;
+box-shadow: 5px 5px 5px gray;
+}
+img:hover{
+opacity: 0.7
+}
+div{
+text-align: center;
+    margin: 20px;}
+</style>
+</head>
+<body>
+<h2>원하는 상품을 클릭해 주세요!! 마구마구 ^^</h2>
+<hr/>
+<div id="container">
+</div>
+</body>
+<script>
+let container = document.querySelector("#container");
+for(let i = 1; i<11; i++){
+	container.innerHTML += "<a href='/edu/basket1?id=p00"+i+"&src="+i+"'><img src ='/edu/images/"+i+".jpg'></a>";
+	if(i == 5){
+		container.innerHTML +="<br/>"
+	}
+}
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>이벤트 모델 - 인라인</h1>
+	<hr />
+	<button onclick="btnClickHandler('red')">빨강색</button>
+	<button onclick="btnClickHandler('blue')">파랑색</button>
+	<button onclick="btnClickHandler('yellow')">노랑색</button>
+	<hr />
+	<div id="result">
+		오늘은 <span id="month">9</span>월 <span id="day">20</span>일입니다.
+	</div>
+	<script>
+		let date = new Date();
+		document.querySelector("#month").innerHTML = date.getMonth() + 1;
+		document.querySelector("#day").innerHTML = date.getDate();
+		const result = document.querySelector("#result");
+		function btnClickHandler(c) {
+			result.style.color = c;
+		}
+	</script>
+</body>
+</html>

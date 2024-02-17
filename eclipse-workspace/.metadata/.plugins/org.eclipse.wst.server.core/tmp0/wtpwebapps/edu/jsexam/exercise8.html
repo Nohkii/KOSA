@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="util.js"></script>
+	<script>
+		function printH1(content) {
+			write(content, "h1");
+		}
+		function printH4(content) {
+			write(content, "h4");
+		}
+		// 되는 것만 체크하고 안되는 경우는 아래에다가 보낼 수도 있다~~
+		// 부정연산자가 없으니 가독성이 더 좋은 것 같기도 하다,,
+		function apply(arr, func) {
+			if (Array.isArray(arr) && typeof func == "function") {
+				for(let e of arr){
+					func(e);
+				}
+			return true;
+			}
+			console.log("아규먼트 오류");
+			return false;
+		}
+/* 		function apply(arr, func) {
+			if (!Array.isArray(arr) || typeof func != "function") {
+				console.log("아규먼트 오류");
+				return false;
+			}
+			for(let e of arr){
+				func(e);
+			}
+			return true;
+		} */
+		let array = [];
+		while (true) {
+			let data = window.prompt("데이터를 입력하세요.");
+			if(data == null){
+				break;
+			}
+				array.push(data);
+		}  
+ 	 	 let ranNum = Math.floor((Math.random() * 10) + 1);    
+		console.log("난수 : " + ranNum);
+		if (ranNum == 1 || ranNum == 4 || ranNum == 6) {
+			(apply(array, printH1)) ? window.alert("처리 성공") : window
+					.alert("처리 실패");
+		} else if (ranNum == 3 || ranNum == 5 || ranNum == 7) {
+			(apply(array, printH4)) ? window.alert("처리 성공") : window
+					.alert("처리 실패");
+		} else if (ranNum == 8 || ranNum == 9) {
+			(apply("ㅋㅋ", printH1)) ? window.alert("처리 성공") : window
+					.alert("처리 실패");
+		} else {
+			(apply(array)) ? window.alert("처리 성공") : window.alert("처리 실패");
+		}
+	</script>
+</body>
+</html>

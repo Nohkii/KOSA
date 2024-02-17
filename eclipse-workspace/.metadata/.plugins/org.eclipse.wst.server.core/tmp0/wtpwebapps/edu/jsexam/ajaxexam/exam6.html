@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax테스트</title>
+</head>
+<body>
+<h2 onclick="getImage();">이 행을 클릭해요. Ajax로 이미지를 요청하고 출력해요....</h2>
+<script>
+let imgname = 0;
+function getImage() {
+	imgname = imgname == 10 ? 1 : imgname+1; 
+	const xhr = new XMLHttpRequest();	// 이미지 저장할 때 사용
+	xhr.responseType = 'blob'; // 이미지 타입 지정
+	xhr.onload = function(e) {  // 응답이 다 오면 실행하도록
+  		if (this.status == 200) { // 성공적인 응답인지 체크
+    		const blob = e.target.response // blob에 바이너리 내용이 들어감
+    		const img = document.createElement('img'); // img 태그 생성
+    		img.width=100;
+    		img.height=100;
+    		img.src = URL.createObjectURL(blob); 
+    		// blob에는 이미지의 내용이 들어가있기 때문에 src에 바로 넣을 수 없음
+    		// 이미지 내용을 바탕으로 url 만들어서 src에 넣도록 
+    		document.body.appendChild(img);    
+  		}
+	};
+	xhr.open('GET', `/edu/images/${imgname}.jpg`, true); // 세번째 아규먼트 true -> 비동기통신
+	xhr.send(); // 서버에 통신 요청
+}
+</script>
+</body>
+</html>

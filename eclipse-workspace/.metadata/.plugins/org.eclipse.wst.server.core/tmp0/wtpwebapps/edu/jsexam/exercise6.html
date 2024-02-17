@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="util.js"></script>
+	<script>
+		var year = parseInt(window.prompt("연도를 입력해주세요."));
+		var month = parseInt(window.prompt("월를 입력해주세요."));
+		var day = parseInt(window.prompt("일를 입력해주세요."));		
+ 		if (typeof getKorDay(year, month, day)) { 
+			let result = getKorDay(year, month, day);
+			let dayList = ["일","월","화","수","목","금","토"];
+			let dayName = dayList[result.getDay()];
+			writeColor(year+"년 "+month+"월 "+day+"일은 "+dayName+"요일입니다.","h1","blue");
+		} else {
+			writeColor("결과 없음", "h1", "red");
+		}		
+		function getKorDay(y, m, d) {
+			if (isNaN(y) || isNaN(m)
+					|| isNaN(y)) {
+				return;
+			}
+			date = new Date(y, m-1, d);
+			return date;
+		}
+	</script>
+</body>
+</html>

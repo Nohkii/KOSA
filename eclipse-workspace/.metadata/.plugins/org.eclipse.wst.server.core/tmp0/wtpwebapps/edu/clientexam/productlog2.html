@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img {
+	width: 150px;
+	border: 1px solid black;
+	margin: 0 20px 20px 0;
+	box-shadow: 5px 5px 5px gray;
+}
+img:hover {
+	opacity: 0.7
+}
+div {
+	text-align: center;
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+	<h2>원하는 상품을 클릭해 주세요!! 마구마구 ^^</h2>
+	<hr />
+	<form name="imgForm" action="/edu/basket2" method="get">
+		<div id="container"></div>
+	</form>
+</body>
+<script>
+	/* count서블릿을 사용해서 10개짜리 배열을 만들어서 등록해서 나오게 하면 된다~ */
+	let container = document.querySelector("#container");
+	for (let i = 1; i < 11; i++) {
+		if (i != 10) {
+			container.innerHTML += "<img src ='/edu/images/"+i+".jpg' value ='pid0"+i+"' name ='pid0"+i+"'>";
+		} else {
+			container.innerHTML += "<img src ='/edu/images/"+i+".jpg' value ='pid0"+i+"' name ='pid"+i+"'>";
+		}
+		if (i == 5) {
+			container.innerHTML += "<br/>"
+		}
+	}
+	let imgs = document.getElementsByTagName("img");
+	[].forEach.call(imgs, function(e) {
+		e.addEventListener("click", imgClickCounter, false);
+	});
+	function imgClickCounter(e) {
+		let selectedImgName = e.target.name;
+		sessionStorage.setItem("selectedImgName", selectedImgName);
+		 imgForm.submit(); 
+	}
+</script>
+</html>

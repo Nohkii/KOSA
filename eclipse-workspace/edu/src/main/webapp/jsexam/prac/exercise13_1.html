@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#out{
+		text-align: center;
+		margin: auto;
+	}
+	h1{
+		color : #22668D;
+	}
+	button{
+		border-radius: 10px;
+	    border: 2px solid #4F709C;
+	    background: #22668D;
+	    margin: 10px;
+	    width: 7%;
+	    height: 35px;
+	    color: #F0F0F0;
+	}
+</style>
+</head>
+<body>
+	<div id="out">
+		<h1 onclick="gogugudan()">구구단</h1>
+		<button onclick="gugudan(1);">1단</button>
+		<button onclick="gugudan(2);">2단</button>
+		<button onclick="gugudan(3);">3단</button>
+		<button onclick="gugudan(4);">4단</button>
+		<button onclick="gugudan(5);">5단</button>
+		<button onclick="gugudan(6);">6단</button>
+		<button onclick="gugudan(7);">7단</button>
+		<button onclick="gugudan(8);">8단</button>
+		<button onclick="gugudan(9);">9단</button>
+		<hr>
+		<div id="output"></div>
+	</div>
+	<script>
+	
+		function gugudan(num){
+			const output = document.getElementById('output');
+			output.innerHTML = '';
+            for (let i = 1; i <= 9; i++) {
+                output.innerHTML += "<h2>"+num+" x "+i+" = "+num*i+"</h2>";
+            }
+		}
+		
+		function gogugudan(){
+			window.location.href = 'https://ko.wikipedia.org/wiki/구구단';
+		}
+	</script>
+</body>
+</html>

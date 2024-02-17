@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+@font-face {
+    font-family: 'NPSfontBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+h1, h3 {
+	text-align: center;
+	font-family: 'NPSfontBold';
+}
+img {
+	display: block;
+	margin: 0 auto;
+	width: 350px
+}
+</style>
+</head>
+<body>
+	<h1>
+		AJAX로 구현하는 오늘의 날씨 정보 - <span></span>
+	</h1>
+	<hr>
+	<h3>
+		발표 일시 : <span></span>
+	</h3>
+	<h3>
+		온도 : <span></span>도
+	</h3>
+	<img>
+		<script>
+	   let spanTags = document.getElementsByTagName("span");
+		let img = document.getElementsByTagName("img")[0];
+		window.onload = function() {
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				let result = JSON.parse(xhttp.response);
+				spanTags[0].innerHTML = result.wtext;
+				spanTags[1].innerHTML = result.time;
+				spanTags[2].innerHTML = result.temp;
+				img.src += "../../" + result.img;
+			}
+			xhttp.open("GET", "content/weather.jsp", true);
+			xhttp.send();
+		}
+	</script>
+</body>
+</html>

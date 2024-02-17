@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>이벤트 모델 - 고전</h1>
+	<hr />
+	<button id="b1" value="red">빨강색</button>
+	<button id="b2" value="blue">파랑색</button>
+	<button id="b3" value="yellow">노랑색</button>
+	<hr />
+	<div id="result">
+		오늘은 <span id="month"></span>월 <span id="day"></span>일입니다.
+	</div>
+	<script>
+		// html 태그들이 다 생성된 후 js코드가 실행되도록 window.onload를 써주는 것이 좋다~
+		let date = new Date();
+		document.querySelector("#month").innerHTML = date.getMonth() + 1;
+		document.querySelector("#day").innerHTML = date.getDate();
+		const result = document.querySelector("#result");
+		function btnClickHandler(e) {
+			result.style.color = e.target.value;
+		/* 	result.style.color = this.value; -> 이렇게 작성해도 됨! */
+		}
+		document.querySelector("#b1").onclick = btnClickHandler;
+		document.querySelector("#b2").onclick = btnClickHandler;
+		document.querySelector("#b3").onclick = btnClickHandler;
+	</script>
+</body>
+</html>

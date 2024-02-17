@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		const colorArray = ["red", "green", "blue"];
+		const newColorArray = [...colorArray, "orange"];
+		
+		console.log(colorArray); // ["red", "green", "blue"];
+		console.log(newColorArray); // ["red", "green", "blue", "orange"];
+		console.log("=".repeat(30));
+
+		const numArray = [2, 3, 4];
+		const newNumArray = [1, ... numArray, 5]; // 중간에 넣는 것도 가능하다
+		
+		console.log(numArray);	// [2, 3, 4];
+		console.log(newNumArray); // [1, 2, 3, 4, 5];
+		console.log("=".repeat(30));
+
+		function myPrint(a, b, c) {
+			console.log(`a=${a}`);
+			console.log(`b=${b}`);
+			console.log(`c=${c}`);
+		}
+		const array = [1, 2, 3];		
+		console.log(array); // [1, 2, 3];	
+		myPrint( ... array); // a=1  b=2  c=3
+		
+		const stringArray = [ ... "xyz"];		
+		console.log(stringArray);	// ['x', 'y', 'z']
+		myPrint( ... stringArray); // a=x b=y c=z
+	</script>
+</body>
+</html>

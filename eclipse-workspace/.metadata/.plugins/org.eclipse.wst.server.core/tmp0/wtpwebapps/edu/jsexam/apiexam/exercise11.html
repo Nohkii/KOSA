@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let ranNum = Math.floor((Math.random() * 3) + 1);
+		let ok = window.confirm("이동하시겠습니까?");
+		if (ok) {
+			switch (ranNum) {
+			case 1:
+				window.open("http://www.daum.net");
+				break;
+			case 2:
+				window.open("http://www.naver.com");
+				break;
+			case 3:
+				window.open("http://www.google.com");
+			}
+		} else {
+			location.href = "../../first.html";
+		}
+	</script>
+</body>
+</html>

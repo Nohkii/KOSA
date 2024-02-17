@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="../util.js"></script>
+	<script>
+		function DayInfo(name, year, month, day) {
+			this.name = name;
+			this.year = year;
+			this.month = month;
+			this.day = day;
+		}
+		DayInfo.prototype.getTotalDates = function() {
+			let oldDate = new Date(`${this.year}-${this.month}-${this.day}`);
+			let newDate = new Date('2023-09-20');
+			let diff = Math.abs(newDate.getTime() - oldDate.getTime());
+			diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
+			return `${this.name}님은 태어난지 ${diff}일 되었어요.`;
+		}
+		DayInfo.prototype.getKorDay = function() {
+			const dayName = [ '일', '월', '화', '수', '목', '금', '토' ];
+			const dayOfWeek = new Date(`${this.year}-${this.month}-${this.day}`)
+					.getDay();
+			return `${this.name}님은 ${dayName[dayOfWeek]}요일에 태어났어요.`;
+		}
+		
+		// 배열에 담아서 for in 반복문으로 돌릴 수 있다.
+		
+		let person1 = new DayInfo("철수", 1996, 1, 29);
+		let person2 = new DayInfo("맹구", 2000, 3, 5);
+		let person3 = new DayInfo("짱구", 2002, 10, 10);
+		
+		writeColor(person1.getTotalDates(), "h3", "blueviolet");
+		writeColor(person1.getKorDay(), "h3", "cornflowerblue");
+		writeColor(person2.getTotalDates(), "h3", "blueviolet");
+		writeColor(person2.getKorDay(), "h3", "cornflowerblue");
+		writeColor(person3.getTotalDates(), "h3", "blueviolet");
+		writeColor(person3.getKorDay(), "h3", "cornflowerblue");
+
+/* 		 for(let i = 1; i <4; i++){
+		 eval(`writeColor(person${i}.getTotalDates(),"h3","red")`);
+		 eval(`writeColor(person${i}.getKorDay(),"h3","blue")`);
+		 }  */
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {text-align: center;}
+        a{ text-decoration: none;}
+    </style>
+</head>
+<body>
+<h1>로또 결과</h1>
+<hr/>
+<p>[(${lottoDTO.result })]></p>
+<p th:utext="${lottoDTO.result }" style="color:red"></p>
+<img th:src="@{'/images/' + ${lottoDTO.imgName + '.png'}}" alt="로또 이미지" width="400px">
+<hr/>
+<a th:if=${lottoDTO.ImgName.equals("rain")} th:href="${refinfo}">
+    재시도
+</a>
+</body>
+</html>

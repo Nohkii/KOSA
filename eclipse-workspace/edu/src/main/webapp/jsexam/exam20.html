@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function highOrderFunction(p) {
+			if (typeof p == 'function') { // typeof 연산자는 타입의 문자열을 리턴함
+				p('ㅋㅋㅋ');
+			} else {
+				alert(p);
+			}
+		}
+		highOrderFunction(function(msg) {
+			document.write(msg);
+		});
+		highOrderFunction(function(msg) {
+			console.log(msg);
+		});
+		highOrderFunction(); // -> else에 걸림
+	</script>
+</body>
+</html>

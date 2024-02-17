@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="util.js"></script>
+	<script>
+	
+		let p = [ {
+			tag : 'h1',
+			color : 'red',
+			msg : '빨강'
+		}, {
+			tag : 'h2',
+			color : 'yellow',
+			msg : '노랑'
+		}, {
+			tag : 'h3',
+			color : 'blue',
+			msg : '파랑'
+		}, {
+			tag : 'h4',
+			color : 'pink',
+			msg : '핑크'
+		}, {
+			tag : 'h5',
+			color : 'black',
+			msg : '검정'
+		} ]
+		function printObject(p) {
+			if (typeof p != "object") {
+				return;
+			}
+			return writeColor(p.msg, p.tag, p.color);
+		}
+		for (let i = 0; i < 5; i++) {
+			printObject(p[i]);
+		}
+	</script>
+</body>
+</html>

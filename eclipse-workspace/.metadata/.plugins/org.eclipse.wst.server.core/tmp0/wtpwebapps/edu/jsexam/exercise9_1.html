@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="util.js"></script>
+	<script>
+		function printObject(p) {
+			if (typeof p != "object") {
+				return;
+			}
+			return writeColor(p.msg, p.tag,p.color);
+		}
+			let p = {
+				tag : 'h1',
+				color : 'red',
+				msg : '빨강'
+			}			
+			printObject(p);
+			p.tag = 'h2';
+			p.color = 'yellow';
+			p.msg = '노랑'
+			printObject(p);
+			p.tag = 'h3';
+			p.color = 'blue';
+			p.msg = '파랑'
+			printObject(p);
+			p.tag = 'h4';
+			p.color = 'black';
+			p.msg = '검정'
+			printObject(p);
+			p.tag = 'h5';
+			p.color = 'pink';
+			p.msg = '핑크';
+			printObject(p);
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1 {
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<script src="util.js"></script>
+	<script>
+	/* 
+	확인말고 취소버튼을 누르면 trim()을 호출했을때 에러가 남
+	null에다가 trim()을 사용했기 때문이다~
+	-> 
+	trim을 쓰기전에 null인지 확인을 해야함 
+	*/
+		write("자바스크립트 실습(3)", "h1");
+		let num = window.prompt("숫자를 입력해주세요.");
+		console.log(num);
+		let sum = 0;
+		/*
+		num이 null인지 먼저 확인해야한다
+		그래야 앞에서 확인하고 뒤로 가서 확인한다~
+		*/
+		if (num==null || num.trim() == '') {
+/* 		if (num.trim() == '' || num.trim() == null) { => 이렇게 하면 안된다~*/ 
+			write("비어있는 입력", "h3");
+		} else if (isNaN(num)) {
+			write(num, "h3");
+		} else {
+			write("1부터 " + num + "까지의 합은 " + sum + "입니다.", "h2");
+			for (let i = 1; i <= num; i++) {
+				sum += i;
+			}
+		}
+	</script>
+</body>
+</html>

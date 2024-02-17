@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 리턴값이 함수인 함수도 간혹 있다,,
+		function outerFunction() {
+			return function() {
+				document.write('<H1>Hello World .. !</h1>');
+			};
+		}
+		outerFunction()(); /* outerFunction함수를 호출하고 리턴을 바로 내보냄..? */
+		var result = outerFunction(); /* 함수를 담게되는 변수는 함수 역할을 하게 됨 */
+		result();
+		result();
+	</script>
+</body>
+</html>
